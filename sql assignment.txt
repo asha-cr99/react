@@ -1,0 +1,56 @@
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT,
+    grade INT
+);
+INSERT INTO students (student_id, first_name, last_name, age, grade) VALUES
+(1, 'John', 'Doe', 18, 85),
+(2, 'Jane', 'Smith', 19, 92),
+(3, 'Michael', 'Johnson', 18, 78),
+(4, 'Emily', 'Davis', 20, 95),
+(5, 'William', 'Brown', 19, 88),
+(6, 'Eva', 'White', 18, 80),
+(7, 'Alex', 'Wilson', 20, 90);
+
+
+
+1)Find the Average grade for each Age group
+
+Select age , AVG(grade) as average_grade
+from Students
+Group By age;
+
+
+
+2)Find ages with average grade greater than 85
+
+SELECT age, AVG(grade) AS average_grade
+FROM students
+GROUP BY age
+HAVING AVG(grade) > 85;
+
+
+
+3)Find the maximum grade for students aged 18
+
+SELECT MAX(grade) AS max_grade
+FROM students
+WHERE age = 18;
+
+
+
+4)Count the number of students in each grade
+
+SELECT grade, COUNT(*) AS number_of_students
+FROM students
+GROUP BY grade;
+
+
+5)Find the minimum age among students with grade less than 80
+
+SELECT MIN(age) AS min_age
+FROM students
+WHERE grade < 80;
+
